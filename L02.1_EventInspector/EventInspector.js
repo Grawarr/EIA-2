@@ -15,7 +15,7 @@ var EventInspector;
     }
     function setInfoBox(_event) {
         var position = document.querySelector("#infobox");
-        position.innerHTML = "X: " + _event.clientX + "px /" + " Y: " + _event.clientY + "px /" + " Target: " + _event.target;
+        position.innerHTML = "X: " + _event.clientX + "px /" + " Y: " + _event.clientY + "px" + " Target: " + _event.target;
         position.style.left = (_event.clientX + 7) + "px";
         position.style.top = (_event.clientY + 11) + "px";
     }
