@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    background-color: #2F4858;
+    color: #FFFFFF;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h1 {
+    color: #F8B23A;
+}
+#wrapper {
+    display: grid;
+    margin: 10px;
+    width: 100hh;
+    height: 100vh;
+    background-color: #33658A;
+    grid-template-columns: 10, 1fr;
+    grid-template-rows: 5, 1fr;
+}
+.cards {
+    width: 10%;
+    height: 20%;
+    grid-column-start: 1;
+    grid-column-end: 10;
+    background-color: #F8B23A;
+    border: solid #F8B23A 5px;
+    color: rgba(0, 0, 0, 0.0);
+}
+.cardsRevealed {
+    width: 10%;
+    height: 20%;
+    grid-column-start: 1;
+    grid-column-end: 10;
+    background-color: #86BBD8;
+    border: solid #F8B23A 5px;
+    color: #FFFFFF;
+}
