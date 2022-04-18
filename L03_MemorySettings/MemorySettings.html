@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemorySettings</title>
+    <link rel="stylesheet" href="MemorySettings.css">
+    <script src="MemorySettings.js"></script>
+</head>
+<body>
+    <div id="settings">
+        <h1>Memory</h1>
+        <form>
+            <fieldset>
+                <legend>Kartenpaare</legend>
+                <input type="number" name="amountOfPairs" min="5" max="25" step="1" value="5">
+            </fieldset>
+            <fieldset>
+                <legend>Kartengröße</legend>
+                50px
+                <input type="range" name="sizeOfCards" min="50" max="100" step="10" value="50">
+                100px
+            </fieldset>
+            <fieldset>
+                <legend>Farben</legend>
+                <label for="backgroundColor">Hintergrundfarbe:</label>
+                <input type="color" name="backgroundColor" value="#33658A">
+                <br>
+                <label for="cardColor">Kartenrücken</label>
+                <input type="color" name="cardColor" value="#F6AE2D">
+                <br>
+                <label for="textColor">Schrift</label>
+                <input type="color" name="textColor" value="#2F4858">
+            </fieldset>
+            <fieldset>
+                <legend>Schriftarten</legend>
+                <label for="Trebuchet MS">Trebuchet MS</label>
+                <input type="radio" name="fontFamily" value="Arial" checked>
+                <br>
+                <label for="Times New Roman" id="fontTimesNewRomanLabel">Times New Roman</label>
+                <input type="radio" name="fontFamily" value="Times New Roman">
+                <br>
+                <label for="Courier" id="fontCourier">Courier</label>
+                <input type="radio" name="fontFamily" value="Courier">
+            </fieldset>
+        </form>
+        <br>
+        <input type="submit" id="startButton" value="Los Geht's">
+    </div>
+    <div id="playArea" class="hidden"></div>
+</body>
+</html

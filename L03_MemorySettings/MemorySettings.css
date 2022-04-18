@@ -1,0 +1,72 @@
+/*Color Palette made with: https://coolors.co/86bbd8-2f4858-f6ae2d-33658a-f26419 */
+
+body {
+    background-color: #33658A;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #F6AE2D;
+    font-size: x-large;
+}
+
+#playArea
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 75%;
+    height: 85%;
+    gap: 10px;
+    border: 3px solid #2F4858;
+    margin: auto;
+    padding: 10px;
+}
+
+fieldset
+{
+    width: 300px;
+}
+
+label
+{
+    width: 150px;
+    display: inline-block;
+}
+
+.card
+{
+    border: 1px solid black;
+}
+
+.card span 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    font-size: 30px;
+    height: 100%;
+    background-color: #F26419;
+}
+
+#fontTrebuchetLabel
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#fontTimesNewRomanLabel
+{
+    font-family: 'Times New Roman';
+}
+
+#fontCourierLabel
+{
+    font-family: 'Courier';
+}
+
+.hidden
+{
+    display: none !important;
+}
+
+.invisible 
+{
+    visibility: hidden;
+}
