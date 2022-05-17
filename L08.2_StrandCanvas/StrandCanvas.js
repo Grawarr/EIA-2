@@ -32,6 +32,8 @@ var Beach;
         grd.addColorStop(0, "#f4f2f4");
         crc2.fillStyle = grd;
         crc2.fillRect(0, 700, 750, 1334);
+        // debugger;
+        bush();
     }
     function cloud() {
         for (var i = 1; i <= 10; i++) {
@@ -63,6 +65,27 @@ var Beach;
     }
     function randomizerScale() {
         return (Math.random() * (1 - 0.25) + 0.25);
+    }
+    function bush() {
+        var j = 0;
+        for (var i = 1; i <= 2; i++) {
+            crc2.save();
+            crc2.translate(-50 + j, 1334);
+            crc2.beginPath();
+            crc2.bezierCurveTo(-50, 0, -50, -400, 75, -250);
+            crc2.bezierCurveTo(200, -275, 150, -150, 175, -175);
+            crc2.bezierCurveTo(175, -175, 275, -200, 250, -75);
+            crc2.bezierCurveTo(250, -100, 325, -50, 300, 0);
+            crc2.closePath();
+            var grd = crc2.createRadialGradient(50, 0, 1, 50, 0, 300);
+            grd.addColorStop(0, "#233105");
+            grd.addColorStop(1, "#7a850e");
+            crc2.fillStyle = grd;
+            crc2.fill();
+            crc2.restore();
+            crc2.scale(-1, 1);
+            j += -750;
+        }
     }
 })(Beach || (Beach = {}));
 //# sourceMappingURL=StrandCanvas.js.map

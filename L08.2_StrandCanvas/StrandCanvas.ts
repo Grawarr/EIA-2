@@ -41,6 +41,8 @@ namespace Beach {
 
         crc2.fillStyle = grd;
         crc2.fillRect(0, 700, 750, 1334)
+        // debugger;
+        bush();
     }
 
     function cloud(): void {
@@ -79,6 +81,34 @@ namespace Beach {
 
     function randomizerScale(): number {
         return (Math.random() * (1 - 0.25) + 0.25);
+    }
+
+    function bush(): void {
+        let j: number = 0;
+
+        for (let i: number = 1; i <= 2; i++) {
+            crc2.save();
+            crc2.translate(-50 + j, 1334);
+
+            crc2.beginPath();
+            crc2.bezierCurveTo(-50, 0, -50, -400, 75, -250);
+            crc2.bezierCurveTo(200, -275, 150, -150, 175, -175);
+            crc2.bezierCurveTo(175, -175, 275, -200, 250, -75)
+            crc2.bezierCurveTo(250, -100, 325, -50, 300, 0)
+            crc2.closePath();
+
+            let grd = crc2.createRadialGradient(50, 0, 1, 50, 0, 300);
+            grd.addColorStop(0, "#233105")
+            grd.addColorStop(1, "#7a850e")
+            crc2.fillStyle = grd;
+            crc2.fill();
+
+            crc2.restore();
+            crc2.scale(-1, 1);
+
+            j += -750;
+
+        }
     }
 
 }
