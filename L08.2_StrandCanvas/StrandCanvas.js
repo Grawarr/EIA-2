@@ -237,7 +237,7 @@ var Beach;
         crc2.restore();
     }
     function randomizerYGirl() {
-        return (Math.floor(Math.random() * (1334 - 100) + 100));
+        return (Math.floor(Math.random() * (1000 - 600) + 600));
     }
     function randomizerGirlScale() {
         return (Math.random() * (2 - 0.75) + 0.75);

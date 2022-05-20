@@ -274,7 +274,7 @@ namespace Beach {
     }
 
     function randomizerYGirl(): number {
-        return (Math.floor(Math.random() * (1334 - 100) + 100));
+        return (Math.floor(Math.random() * (1000 - 600) + 600));
     }
 
     function randomizerGirlScale(): number {
