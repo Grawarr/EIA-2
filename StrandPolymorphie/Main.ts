@@ -4,7 +4,10 @@ namespace BeachParadise {
     export let canvas: HTMLCanvasElement;
     export let crc2: CanvasRenderingContext2D;
 
+    let clouds: Cloud []
+
     function handleLoad(_event: Event): void {
+        
         console.log("BeachAnimation starting");
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
@@ -15,6 +18,8 @@ namespace BeachParadise {
         let cloud: Cloud = new Cloud(1);
         console.log("cloud");
         cloud.draw();
+        cloud.move(0.1);
+        clouds.push(cloud)
 
         let boat: Boat = new Boat(1);
         console.log("boat");
@@ -27,6 +32,14 @@ namespace BeachParadise {
         beachGirl.draw();
 
         bush();
+    }
+
+    function update(): void {
+        console.log("update")
+        for (let i: number = 0; i < 2; i++) {
+            clouds[0].move(0.1);
+            clouds[0].draw();
+        }
     }
 
     export function randomizerXClouds(): number {

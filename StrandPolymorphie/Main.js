@@ -1,6 +1,7 @@
 var BeachParadise;
 (function (BeachParadise) {
     window.addEventListener("load", handleLoad);
+    var clouds;
     function handleLoad(_event) {
         console.log("BeachAnimation starting");
         BeachParadise.canvas = document.querySelector("canvas");
@@ -10,6 +11,8 @@ var BeachParadise;
         var cloud = new BeachParadise.Cloud(1);
         console.log("cloud");
         cloud.draw();
+        cloud.move(0.1);
+        clouds.push(cloud);
         var boat = new BeachParadise.Boat(1);
         console.log("boat");
         boat.draw();
@@ -18,6 +21,13 @@ var BeachParadise;
         console.log("beachgirl");
         beachGirl.draw();
         bush();
+    }
+    function update() {
+        console.log("update");
+        for (var i = 0; i < 2; i++) {
+            clouds[0].move(0.1);
+            clouds[0].draw();
+        }
     }
     function randomizerXClouds() {
         return (Math.floor(Math.random() * (500 - 10) + 10));

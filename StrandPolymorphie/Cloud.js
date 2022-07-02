@@ -11,6 +11,10 @@ var BeachParadise;
         }
         Cloud.prototype.move = function (_timeslice) {
             console.log("Cloud move");
+            var offset = new BeachParadise.Vector(this.velocity.x, this.velocity.y);
+            offset.scale(_timeslice);
+            this.position.add(offset);
+            console.log(offset);
         };
         Cloud.prototype.draw = function () {
             console.log("Cloud draw");

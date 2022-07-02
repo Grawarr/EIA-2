@@ -18,6 +18,10 @@ namespace BeachParadise {
 
         move(_timeslice: number): void {
             console.log("Cloud move");
+            let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
+            offset.scale(_timeslice);
+            this.position.add(offset);
+            console.log(offset);
         }
 
         draw(): void {
