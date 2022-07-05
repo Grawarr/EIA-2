@@ -13,7 +13,6 @@ var BeachParadise;
             this.size = _size;
         }
         move(_timeslice) {
-            // console.log("Cloud move");
             let offset = new BeachParadise.Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);

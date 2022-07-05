@@ -7,10 +7,11 @@ namespace BeachParadise {
         size: number;
 
         constructor(_size: number) {
-            this.size = _size;
-            this.position = new Vector(200,300);
+            this.position = new Vector(200, 200);
+            this.position.random(200, 500);
             this.velocity = new Vector(0, 0);
-            this.velocity.random(10, 200);
+            this.velocity.random(20, 100);
+            this.size = _size;
 
         }
 
@@ -18,9 +19,24 @@ namespace BeachParadise {
             let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
+
+            if (this.position.x < 0) {
+                this.position.x += canvas.width;
+            }
+            if (this.position.y < 0) {
+                this.position.y += canvas.height;
+            }
+            if (this.position.x > canvas.width) {
+                this.position.x -= canvas.width;
+            }
+            if (this.position.y > canvas.height) {
+                this.position.y -= canvas.height;
+            }
         }
 
         draw(): void {
+            console.log("cloud draw wird ausgeführt");
+            
                 crc2.save();
                 crc2.translate(250, 250);
                 crc2.scale(1, 1);

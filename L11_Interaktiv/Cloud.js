@@ -6,17 +6,31 @@ var BeachParadise;
         type;
         size;
         constructor(_size) {
-            this.size = _size;
-            this.position = new BeachParadise.Vector(200, 300);
+            this.position = new BeachParadise.Vector(200, 200);
+            this.position.random(200, 500);
             this.velocity = new BeachParadise.Vector(0, 0);
-            this.velocity.random(10, 200);
+            this.velocity.random(20, 100);
+            this.size = _size;
         }
         move(_timeslice) {
             let offset = new BeachParadise.Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
+            if (this.position.x < 0) {
+                this.position.x += BeachParadise.canvas.width;
+            }
+            if (this.position.y < 0) {
+                this.position.y += BeachParadise.canvas.height;
+            }
+            if (this.position.x > BeachParadise.canvas.width) {
+                this.position.x -= BeachParadise.canvas.width;
+            }
+            if (this.position.y > BeachParadise.canvas.height) {
+                this.position.y -= BeachParadise.canvas.height;
+            }
         }
         draw() {
+            console.log("cloud draw wird ausgeführt");
             BeachParadise.crc2.save();
             BeachParadise.crc2.translate(250, 250);
             BeachParadise.crc2.scale(1, 1);

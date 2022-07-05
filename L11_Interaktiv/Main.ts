@@ -14,22 +14,26 @@ namespace BeachParadise {
 
         skyGradient();
         seaGradient();
+        beachGradient();
+
+        let imgData = crc2.getImageData(0, 0, 750, 1334);
+
         cloud(3);
         boat(2);
-        beachGradient();
         beachGirl(1);
+
+        crc2.putImageData(imgData, 0, 0);
+
         bush();
 
-        window.setInterval(update, 20);
+        window.setInterval(update, 10);
     }
 
     function update(): void {
-        // console.log("update funktion ausgeführt");
-
         for (let cloud of clouds) {
 
             cloud.move(1 / 50);
-            // cloud.draw();
+            cloud.draw();
         }
 
         for (let boat of boats) {
@@ -98,13 +102,13 @@ namespace BeachParadise {
         for (let i: number = 0; i <= _n; i++) {
             let cloud: Cloud = new Cloud(1);
             clouds.push(cloud);
+            console.log("function cloud wird ausgeführt")
         }
     }
 
     function boat(_n: number): void {
         for (let i: number = 0; i < _n; i++) {
             let boat: Boat = new Boat(1);
-
             boats.push(boat);
             console.log("function boat ausgeführt");
         }
