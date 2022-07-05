@@ -6,6 +6,7 @@ namespace BeachParadise {
 
     let clouds: Cloud[] = [];
     let boats: Boat[] = [];
+    let beachGirls: BeachGirl[] = [];
 
     function handleLoad(): void {
 
@@ -18,31 +19,34 @@ namespace BeachParadise {
 
         let imgData = crc2.getImageData(0, 0, 750, 1334);
 
-        cloud(3);
-        boat(2);
-        beachGirl(1);
+        cloud(5);
+        boat(3);
+        beachGirl(4);
 
-        crc2.putImageData(imgData, 0, 0);
+        window.setInterval(update, 100);
 
-        bush();
+        function update(): void {
+            crc2.clearRect(0, 0, canvas.width, canvas.height);
+            crc2.putImageData(imgData, 0, 0);
 
-        window.setInterval(update, 2);
-    }
+            for (let boat of boats) {
 
-    function update(): void {
-        for (let cloud of clouds) {
+                boat.move(1 / 50);
+                boat.draw();
+            }
+            for (let cloud of clouds) {
 
-            cloud.move(1 / 50);
-            cloud.draw();
+                cloud.move(1 / 50);
+                cloud.draw();
+            }
+            for (let beachGirl of beachGirls) {
+                beachGirl.move(1 / 50);
+                beachGirl.draw();
+            }
+            bush();
         }
 
-        for (let boat of boats) {
-
-            boat.move(1 / 50);
-            boat.draw();
-        }
     }
-
     function skyGradient(): void {
         let grd = crc2.createLinearGradient(750, 0, 750, 600);
         grd.addColorStop(0, "#004bc2");
@@ -102,7 +106,7 @@ namespace BeachParadise {
         for (let i: number = 0; i <= _n; i++) {
             let cloud: Cloud = new Cloud(1);
             clouds.push(cloud);
-            console.log("function cloud wird ausgeführt")
+            // console.log("function cloud wird ausgeführt")
         }
     }
 
@@ -110,13 +114,16 @@ namespace BeachParadise {
         for (let i: number = 0; i < _n; i++) {
             let boat: Boat = new Boat(1);
             boats.push(boat);
-            console.log("function boat ausgeführt");
+            // console.log("function boat ausgeführt");
         }
     }
 
     function beachGirl(_n: number): void {
-        let beachGirl: BeachGirl = new BeachGirl(1);
-        beachGirl.draw();
+        for (let i: number = 0; i < _n; i++) {
+            let beachGirl: BeachGirl = new BeachGirl(1);
+            beachGirls.push(beachGirl);
+            console.log("function beachGirl ausgeführt")
+        }
     }
 
 }

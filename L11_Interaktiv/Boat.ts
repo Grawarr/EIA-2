@@ -6,10 +6,8 @@ namespace BeachParadise {
         size: number;
 
         constructor(_size: number) {
-            this.position = new Vector(200, 200);
-            this.position.random(200, 500);
-            this.velocity = new Vector(0, 0);
-            this.velocity.random(20, 100);
+            this.position = new Vector(750 - Math.random() * (750 - 0), 500);
+            this.velocity = new Vector(-30, 0);
             this.size = _size;
         }
 
@@ -30,16 +28,14 @@ namespace BeachParadise {
             if (this.position.y > canvas.height) {
                 this.position.y -= canvas.height;
             }
-
-
         }
 
         draw(): void {
-            console.log("boat draw ausgeführt");
+            // console.log("boat draw ausgeführt");
 
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
-            crc2.scale(this.size, this.size);
+            crc2.scale(this.size/2, this.size/2);
 
             crc2.beginPath();
             crc2.fillStyle = 'rgb(249, 249, 249)';

@@ -6,23 +6,32 @@ var BeachParadise;
         type;
         size;
         constructor(_size) {
-            this.position = new BeachParadise.Vector(0, 0);
-            this.velocity = new BeachParadise.Vector(0, 0);
-            this.velocity.random(100, 200);
-            this.type;
+            this.position = new BeachParadise.Vector(750 - Math.random() * (1334 - 900), 900 - Math.random() * (1334 - 900));
+            this.velocity = new BeachParadise.Vector(-30, 0);
+            this.size = _size;
         }
         move(_timeslice) {
-            console.log("BeachGirl move");
-            //add velocity * _timeslice to position
-            //[positionComp. < 0]
-            //[positionComp. > canvasdimension]
-            //add canvasdimension to component
-            //subtract canvasdimension to component
+            let offset = new BeachParadise.Vector(this.velocity.x, this.velocity.y);
+            offset.scale(_timeslice);
+            this.position.add(offset);
+            if (this.position.x < 0) {
+                this.position.x += BeachParadise.canvas.width;
+            }
+            if (this.position.y < 0) {
+                this.position.y += BeachParadise.canvas.height;
+            }
+            if (this.position.x > BeachParadise.canvas.width) {
+                this.position.x -= BeachParadise.canvas.width;
+            }
+            if (this.position.y > BeachParadise.canvas.height) {
+                this.position.y -= BeachParadise.canvas.height;
+            }
         }
         draw() {
+            console.log("beachGirlDraw");
             BeachParadise.crc2.save();
-            BeachParadise.crc2.translate(250, 300);
-            BeachParadise.crc2.scale(1, 1);
+            BeachParadise.crc2.translate(this.position.x, this.position.y);
+            BeachParadise.crc2.scale(this.size, this.size);
             let grd = BeachParadise.crc2.createLinearGradient(0, 50, 0, 200);
             grd.addColorStop(1, "#e69a6a");
             grd.addColorStop(0, "#844731");

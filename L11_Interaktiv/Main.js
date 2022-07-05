@@ -3,6 +3,7 @@ var BeachParadise;
     window.addEventListener("load", handleLoad);
     let clouds = [];
     let boats = [];
+    let beachGirls = [];
     function handleLoad() {
         BeachParadise.canvas = document.querySelector("canvas");
         BeachParadise.crc2 = BeachParadise.canvas.getContext("2d");
@@ -10,21 +11,26 @@ var BeachParadise;
         seaGradient();
         beachGradient();
         let imgData = BeachParadise.crc2.getImageData(0, 0, 750, 1334);
-        cloud(3);
-        boat(2);
-        beachGirl(1);
-        BeachParadise.crc2.putImageData(imgData, 0, 0);
-        bush();
-        window.setInterval(update, 2);
-    }
-    function update() {
-        for (let cloud of clouds) {
-            cloud.move(1 / 50);
-            cloud.draw();
-        }
-        for (let boat of boats) {
-            boat.move(1 / 50);
-            boat.draw();
+        cloud(5);
+        boat(3);
+        beachGirl(4);
+        window.setInterval(update, 100);
+        function update() {
+            BeachParadise.crc2.clearRect(0, 0, BeachParadise.canvas.width, BeachParadise.canvas.height);
+            BeachParadise.crc2.putImageData(imgData, 0, 0);
+            for (let boat of boats) {
+                boat.move(1 / 50);
+                boat.draw();
+            }
+            for (let cloud of clouds) {
+                cloud.move(1 / 50);
+                cloud.draw();
+            }
+            for (let beachGirl of beachGirls) {
+                beachGirl.move(1 / 50);
+                beachGirl.draw();
+            }
+            bush();
         }
     }
     function skyGradient() {
@@ -74,19 +80,22 @@ var BeachParadise;
         for (let i = 0; i <= _n; i++) {
             let cloud = new BeachParadise.Cloud(1);
             clouds.push(cloud);
-            console.log("function cloud wird ausgeführt");
+            // console.log("function cloud wird ausgeführt")
         }
     }
     function boat(_n) {
         for (let i = 0; i < _n; i++) {
             let boat = new BeachParadise.Boat(1);
             boats.push(boat);
-            console.log("function boat ausgeführt");
+            // console.log("function boat ausgeführt");
         }
     }
     function beachGirl(_n) {
-        let beachGirl = new BeachParadise.BeachGirl(1);
-        beachGirl.draw();
+        for (let i = 0; i < _n; i++) {
+            let beachGirl = new BeachParadise.BeachGirl(1);
+            beachGirls.push(beachGirl);
+            console.log("function beachGirl ausgeführt");
+        }
     }
 })(BeachParadise || (BeachParadise = {}));
 //# sourceMappingURL=Main.js.map

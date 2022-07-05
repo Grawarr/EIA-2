@@ -6,10 +6,8 @@ var BeachParadise;
         type;
         size;
         constructor(_size) {
-            this.position = new BeachParadise.Vector(200, 200);
-            this.position.random(200, 500);
-            this.velocity = new BeachParadise.Vector(0, 0);
-            this.velocity.random(20, 100);
+            this.position = new BeachParadise.Vector(750 - Math.random() * (750 - 0), 500);
+            this.velocity = new BeachParadise.Vector(-30, 0);
             this.size = _size;
         }
         move(_timeslice) {
@@ -30,10 +28,10 @@ var BeachParadise;
             }
         }
         draw() {
-            console.log("boat draw ausgeführt");
+            // console.log("boat draw ausgeführt");
             BeachParadise.crc2.save();
             BeachParadise.crc2.translate(this.position.x, this.position.y);
-            BeachParadise.crc2.scale(this.size, this.size);
+            BeachParadise.crc2.scale(this.size / 2, this.size / 2);
             BeachParadise.crc2.beginPath();
             BeachParadise.crc2.fillStyle = 'rgb(249, 249, 249)';
             BeachParadise.crc2.lineWidth = 0.070004;
