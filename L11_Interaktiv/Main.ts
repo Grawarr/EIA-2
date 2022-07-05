@@ -24,6 +24,8 @@ namespace BeachParadise {
     }
 
     function update(): void {
+        // console.log("update funktion ausgeführt");
+
         for (let cloud of clouds) {
 
             cloud.move(1 / 50);
@@ -33,7 +35,7 @@ namespace BeachParadise {
         for (let boat of boats) {
 
             boat.move(1 / 50);
-            // boat.draw();
+            boat.draw();
         }
     }
 
@@ -104,7 +106,7 @@ namespace BeachParadise {
             let boat: Boat = new Boat(1);
 
             boats.push(boat);
-            console.log("function boat ausgeführt")
+            console.log("function boat ausgeführt");
         }
     }
 

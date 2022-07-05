@@ -6,28 +6,41 @@ namespace BeachParadise {
         size: number;
 
         constructor(_size: number) {
-            this.position = new Vector(0, 0);
+            this.position = new Vector(200, 200);
             this.position.random(200, 500);
             this.velocity = new Vector(0, 0);
-            this.velocity.random(100, 200);
-
-            this.type
+            this.velocity.random(20, 100);
+            this.size = _size;
         }
 
         move(_timeslice: number): void {
-            //add velocity * _timeslice to position
-            //[positionComp. < 0]
-            //[positionComp. > canvasdimension]
-            //add canvasdimension to component
-            //subtract canvasdimension to component
+            // console.log("Cloud move");
+            let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
+            offset.scale(_timeslice);
+            this.position.add(offset);
+
+            if (this.position.x < 0) {
+                this.position.x += canvas.width;
+            }
+            if (this.position.y < 0) {
+                this.position.y += canvas.height;
+            }
+            if (this.position.x > canvas.width) {
+                this.position.x -= canvas.width;
+            }
+            if (this.position.y > canvas.height) {
+                this.position.y -= canvas.height;
+            }
+
+
         }
 
         draw(): void {
-            console.log("boat draw ausgeführt")
+            console.log("boat draw ausgeführt");
 
             crc2.save();
-            crc2.translate(200, 550);
-            crc2.scale(0.25, 0.25);
+            crc2.translate(this.position.x, this.position.y);
+            crc2.scale(this.size, this.size);
 
             crc2.beginPath();
             crc2.fillStyle = 'rgb(249, 249, 249)';

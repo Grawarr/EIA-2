@@ -6,24 +6,35 @@ var BeachParadise;
         type;
         size;
         constructor(_size) {
-            this.position = new BeachParadise.Vector(0, 0);
+            this.position = new BeachParadise.Vector(200, 200);
             this.position.random(200, 500);
             this.velocity = new BeachParadise.Vector(0, 0);
-            this.velocity.random(100, 200);
-            this.type;
+            this.velocity.random(20, 100);
+            this.size = _size;
         }
         move(_timeslice) {
-            //add velocity * _timeslice to position
-            //[positionComp. < 0]
-            //[positionComp. > canvasdimension]
-            //add canvasdimension to component
-            //subtract canvasdimension to component
+            // console.log("Cloud move");
+            let offset = new BeachParadise.Vector(this.velocity.x, this.velocity.y);
+            offset.scale(_timeslice);
+            this.position.add(offset);
+            if (this.position.x < 0) {
+                this.position.x += BeachParadise.canvas.width;
+            }
+            if (this.position.y < 0) {
+                this.position.y += BeachParadise.canvas.height;
+            }
+            if (this.position.x > BeachParadise.canvas.width) {
+                this.position.x -= BeachParadise.canvas.width;
+            }
+            if (this.position.y > BeachParadise.canvas.height) {
+                this.position.y -= BeachParadise.canvas.height;
+            }
         }
         draw() {
             console.log("boat draw ausgeführt");
             BeachParadise.crc2.save();
-            BeachParadise.crc2.translate(200, 550);
-            BeachParadise.crc2.scale(0.25, 0.25);
+            BeachParadise.crc2.translate(this.position.x, this.position.y);
+            BeachParadise.crc2.scale(this.size, this.size);
             BeachParadise.crc2.beginPath();
             BeachParadise.crc2.fillStyle = 'rgb(249, 249, 249)';
             BeachParadise.crc2.lineWidth = 0.070004;

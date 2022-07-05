@@ -16,13 +16,14 @@ var BeachParadise;
         window.setInterval(update, 20);
     }
     function update() {
+        // console.log("update funktion ausgeführt");
         for (let cloud of clouds) {
             cloud.move(1 / 50);
             // cloud.draw();
         }
         for (let boat of boats) {
             boat.move(1 / 50);
-            // boat.draw();
+            boat.draw();
         }
     }
     function skyGradient() {
