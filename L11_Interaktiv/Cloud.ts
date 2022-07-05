@@ -7,12 +7,11 @@ namespace BeachParadise {
         size: number;
 
         constructor(_size: number) {
-            this.position = new Vector(200, 200);
+            this.position = new Vector(0, 0);
             this.position.random(200, 500);
             this.velocity = new Vector(0, 0);
             this.velocity.random(20, 100);
             this.size = _size;
-
         }
 
         move(_timeslice: number): void {

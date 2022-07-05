@@ -15,7 +15,7 @@ var BeachParadise;
         beachGirl(1);
         BeachParadise.crc2.putImageData(imgData, 0, 0);
         bush();
-        window.setInterval(update, 10);
+        window.setInterval(update, 2);
     }
     function update() {
         for (let cloud of clouds) {

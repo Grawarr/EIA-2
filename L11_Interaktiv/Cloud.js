@@ -6,7 +6,7 @@ var BeachParadise;
         type;
         size;
         constructor(_size) {
-            this.position = new BeachParadise.Vector(200, 200);
+            this.position = new BeachParadise.Vector(0, 0);
             this.position.random(200, 500);
             this.velocity = new BeachParadise.Vector(0, 0);
             this.velocity.random(20, 100);

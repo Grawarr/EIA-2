@@ -26,7 +26,7 @@ namespace BeachParadise {
 
         bush();
 
-        window.setInterval(update, 10);
+        window.setInterval(update, 2);
     }
 
     function update(): void {
