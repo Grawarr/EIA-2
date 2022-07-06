@@ -5,10 +5,16 @@ var BeachParadise;
         velocity;
         type;
         size;
-        constructor(_size) {
+        xpoint;
+        ypoint;
+        radius;
+        constructor(_size, _xpoint, _ypoint, _radius) {
             this.position = new BeachParadise.Vector(750 - Math.random() * (750 - 0), 300 - Math.random() * (300 - 0));
             this.velocity = new BeachParadise.Vector(20, 0);
             this.size = _size;
+            this.xpoint = _xpoint;
+            this.ypoint = _ypoint;
+            this.radius = _radius;
         }
         move(_timeslice) {
             let offset = new BeachParadise.Vector(this.velocity.x, this.velocity.y);
@@ -44,6 +50,15 @@ var BeachParadise;
             BeachParadise.crc2.fillStyle = grd;
             BeachParadise.crc2.fill();
             BeachParadise.crc2.restore();
+        }
+        clickCloud(xmouse, ymouse) {
+            const distance = Math.sqrt((xmouse - this.xpoint) * (xmouse - this.xpoint)) + ((ymouse - this.ypoint) * (ymouse - this.ypoint));
+            if (distance < this.radius) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
     BeachParadise.Cloud = Cloud;

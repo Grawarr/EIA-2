@@ -5,11 +5,17 @@ namespace BeachParadise {
         velocity: Vector;
         type: number;
         size: number;
+        xpoint: number;
+        ypoint: number;
+        radius: number;
 
-        constructor(_size: number) {
+        constructor(_size: number, _xpoint: number, _ypoint: number, _radius: number) {
             this.position = new Vector(750 - Math.random() * (750 - 0), 300 - Math.random() * (300 - 0));
             this.velocity = new Vector(20, 0);
             this.size = _size;
+            this.xpoint = _xpoint;
+            this.ypoint = _ypoint;
+            this.radius = _radius;
         }
 
         move(_timeslice: number): void {
@@ -52,6 +58,15 @@ namespace BeachParadise {
             crc2.fill();
 
             crc2.restore();
+        }
+
+        clickCloud(xmouse: number, ymouse: number): boolean {
+            const distance = Math.sqrt((xmouse - this.xpoint) * (xmouse - this.xpoint)) + ((ymouse - this.ypoint) * (ymouse - this.ypoint));
+            if (distance < this.radius) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 }

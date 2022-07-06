@@ -35,7 +35,6 @@ namespace BeachParadise {
                 boat.draw();
             }
             for (let cloud of clouds) {
-
                 cloud.move(1 / 50);
                 cloud.draw();
             }
@@ -45,6 +44,13 @@ namespace BeachParadise {
             }
             bush();
         }
+         
+        canvas.addEventListener('click', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            console.log(cloud.clickCloud(x, y));
+        });
 
     }
     function skyGradient(): void {
@@ -120,10 +126,9 @@ namespace BeachParadise {
 
     function beachGirl(_n: number): void {
         for (let i: number = 0; i < _n; i++) {
-            let beachGirl: BeachGirl = new BeachGirl(1);
+            let beachGirl: BeachGirl = new BeachGirl(2);
             beachGirls.push(beachGirl);
             console.log("function beachGirl ausgeführt")
         }
     }
-
 }
