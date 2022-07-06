@@ -51,10 +51,18 @@ var BeachParadise;
             BeachParadise.crc2.fill();
             BeachParadise.crc2.restore();
         }
+        storm() {
+            let grd = BeachParadise.crc2.createLinearGradient(750, 0, 750, 600);
+            grd.addColorStop(0, "#2a3335");
+            grd.addColorStop(1, "#b5c0b8");
+            BeachParadise.crc2.fillStyle = grd;
+            BeachParadise.crc2.fillRect(0, 0, 750, 600);
+        }
         clickCloud(xmouse, ymouse) {
             const distance = Math.sqrt((xmouse - this.xpoint) * (xmouse - this.xpoint)) + ((ymouse - this.ypoint) * (ymouse - this.ypoint));
             if (distance < this.radius) {
                 // alert("Hit");
+                this.storm();
                 return true;
             }
             else {

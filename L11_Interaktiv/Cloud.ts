@@ -59,16 +59,26 @@ namespace BeachParadise {
 
             crc2.restore();
         }
-
+        storm(): void {
+            let grd = crc2.createLinearGradient(750, 0, 750, 600);
+            grd.addColorStop(0, "#2a3335");
+            grd.addColorStop(1, "#b5c0b8");
+    
+            crc2.fillStyle = grd;
+            crc2.fillRect(0, 0, 750, 600);
+        }
+        
         clickCloud(xmouse: number, ymouse: number): boolean {
             const distance = Math.sqrt((xmouse - this.xpoint) * (xmouse - this.xpoint)) + ((ymouse - this.ypoint) * (ymouse - this.ypoint));
             if (distance < this.radius) {
                 // alert("Hit");
+                this.storm();
                 return true;
             } else {
                 // alert("miss");
                 return false;
             }
         }
+        
     }
 }

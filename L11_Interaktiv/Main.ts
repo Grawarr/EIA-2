@@ -105,7 +105,7 @@ namespace BeachParadise {
 
     function cloud(_n: number): void {
         for (let i: number = 0; i <= _n; i++) {
-            let cloud: Cloud = new Cloud(1, 200, 200, 200);
+            let cloud: Cloud = new Cloud(1, 200, 200, 360); //"Hitbox" noch statisch
             clouds.push(cloud);
             // console.log("function cloud wird ausgeführt")
             canvas.addEventListener('click', (event) => {
