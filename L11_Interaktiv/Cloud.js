@@ -54,7 +54,7 @@ var BeachParadise;
         clickCloud(xmouse, ymouse) {
             const distance = Math.sqrt((xmouse - this.xpoint) * (xmouse - this.xpoint)) + ((ymouse - this.ypoint) * (ymouse - this.ypoint));
             if (distance < this.radius) {
-                alert("Hit");
+                // alert("Hit");
                 return true;
             }
             else {

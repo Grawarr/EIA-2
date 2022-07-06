@@ -78,7 +78,7 @@ var BeachParadise;
     }
     function cloud(_n) {
         for (let i = 0; i <= _n; i++) {
-            let cloud = new BeachParadise.Cloud(1, this.position.x, this.position.y, 200);
+            let cloud = new BeachParadise.Cloud(1, 200, 200, 200);
             clouds.push(cloud);
             // console.log("function cloud wird ausgeführt")
             BeachParadise.canvas.addEventListener('click', (event) => {
