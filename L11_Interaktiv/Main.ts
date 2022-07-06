@@ -44,13 +44,8 @@ namespace BeachParadise {
             }
             bush();
         }
-         
-        canvas.addEventListener('click', (event) => {
-            const rect = canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            console.log(cloud.clickCloud(x, y));
-        });
+
+
 
     }
     function skyGradient(): void {
@@ -110,9 +105,15 @@ namespace BeachParadise {
 
     function cloud(_n: number): void {
         for (let i: number = 0; i <= _n; i++) {
-            let cloud: Cloud = new Cloud(1);
+            let cloud: Cloud = new Cloud(1, this.position.x, this.position.y, 200);
             clouds.push(cloud);
             // console.log("function cloud wird ausgeführt")
+            canvas.addEventListener('click', (event) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                console.log(cloud.clickCloud(x, y));
+            });
         }
     }
 
@@ -128,7 +129,7 @@ namespace BeachParadise {
         for (let i: number = 0; i < _n; i++) {
             let beachGirl: BeachGirl = new BeachGirl(2);
             beachGirls.push(beachGirl);
-            console.log("function beachGirl ausgeführt")
+            // console.log("function beachGirl ausgeführt")
         }
     }
 }

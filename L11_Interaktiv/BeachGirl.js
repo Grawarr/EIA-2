@@ -28,7 +28,6 @@ var BeachParadise;
             }
         }
         draw() {
-            console.log("beachGirlDraw");
             BeachParadise.crc2.save();
             BeachParadise.crc2.translate(this.position.x, this.position.y);
             BeachParadise.crc2.scale(this.size, this.size);

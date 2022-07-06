@@ -32,7 +32,6 @@ namespace BeachParadise {
         }
 
         draw(): void {
-            console.log("beachGirlDraw");
             
             crc2.save();
             crc2.translate(this.position.x, this.position.y);

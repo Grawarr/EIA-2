@@ -32,12 +32,6 @@ var BeachParadise;
             }
             bush();
         }
-        BeachParadise.canvas.addEventListener('click', (event) => {
-            const rect = BeachParadise.canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            console.log(cloud.clickCloud(x, y));
-        });
     }
     function skyGradient() {
         let grd = BeachParadise.crc2.createLinearGradient(750, 0, 750, 600);
@@ -84,9 +78,15 @@ var BeachParadise;
     }
     function cloud(_n) {
         for (let i = 0; i <= _n; i++) {
-            let cloud = new BeachParadise.Cloud(1);
+            let cloud = new BeachParadise.Cloud(1, this.position.x, this.position.y, 200);
             clouds.push(cloud);
             // console.log("function cloud wird ausgeführt")
+            BeachParadise.canvas.addEventListener('click', (event) => {
+                const rect = BeachParadise.canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                console.log(cloud.clickCloud(x, y));
+            });
         }
     }
     function boat(_n) {
@@ -100,7 +100,7 @@ var BeachParadise;
         for (let i = 0; i < _n; i++) {
             let beachGirl = new BeachParadise.BeachGirl(2);
             beachGirls.push(beachGirl);
-            console.log("function beachGirl ausgeführt");
+            // console.log("function beachGirl ausgeführt")
         }
     }
 })(BeachParadise || (BeachParadise = {}));

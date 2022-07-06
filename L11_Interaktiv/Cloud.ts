@@ -63,8 +63,10 @@ namespace BeachParadise {
         clickCloud(xmouse: number, ymouse: number): boolean {
             const distance = Math.sqrt((xmouse - this.xpoint) * (xmouse - this.xpoint)) + ((ymouse - this.ypoint) * (ymouse - this.ypoint));
             if (distance < this.radius) {
+                alert("Hit");
                 return true;
             } else {
+                // alert("miss");
                 return false;
             }
         }
