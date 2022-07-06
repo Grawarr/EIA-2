@@ -21,7 +21,7 @@ namespace BeachParadise {
 
         cloud(5);
         boat(3);
-        beachGirl(4);
+        beachGirl(1);
 
         window.setInterval(update, 100);
 

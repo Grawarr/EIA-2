@@ -13,7 +13,7 @@ var BeachParadise;
         let imgData = BeachParadise.crc2.getImageData(0, 0, 750, 1334);
         cloud(5);
         boat(3);
-        beachGirl(4);
+        beachGirl(1);
         window.setInterval(update, 100);
         function update() {
             BeachParadise.crc2.clearRect(0, 0, BeachParadise.canvas.width, BeachParadise.canvas.height);

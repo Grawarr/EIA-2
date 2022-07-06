@@ -7,7 +7,7 @@ var BeachParadise;
         size;
         constructor(_size) {
             this.position = new BeachParadise.Vector(750 - Math.random() * (1334 - 900), 900 - Math.random() * (1334 - 900));
-            this.velocity = new BeachParadise.Vector(-30, 0);
+            this.velocity = new BeachParadise.Vector(10, -10);
             this.size = _size;
         }
         move(_timeslice) {

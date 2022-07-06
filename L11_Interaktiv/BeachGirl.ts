@@ -8,7 +8,7 @@ namespace BeachParadise {
 
         constructor(_size: number) {
             this.position = new Vector(750 - Math.random() * (1334 - 900), 900 - Math.random() * (1334 - 900));
-            this.velocity = new Vector(-30, 0);
+            this.velocity = new Vector(10, -10);
             this.size = _size;
         }
 
